@@ -39,11 +39,40 @@ public class MyDemoLoggingAspect {
 		System.out.println("Executing @Before Aspect on addAccount");
 
 	}*/
+	
 	//add pointcut expression on any returen type
-		@Before("execution( * add*())")
+	/*	
+	@Before("execution( * add*())")
 		public void beforeAddAccountAdvice() {
 
 			System.out.println("Executing @Before Aspect on addAccount");
 
 		}
+		*/
+	
+	//add pointcut expression on param type
+	/*@Before("execution( * add*(com.aopdemo.Account))")
+	public void beforeAddAccountAdvice() {
+
+		System.out.println("Executing @Before Aspect on addAccount");
+
+	}*/
+	
+	//add pointcut expression on param type
+/*		@Before("execution( * add*(com.aopdemo.Account,..))")
+		public void beforeAddAccountAdvice() {
+
+			System.out.println("Executing @Before Aspect on addAccount");
+
+		}*/
+		
+		//add pointcut expression on package with zero to any number of arguments
+				@Before("execution(* com.aopdemo.dao.*.*(..))")
+				public void beforeAddAccountAdvice() {
+
+					System.out.println("Executing @Before Aspect on addAccount");
+
+				}
+	
+	
 }
