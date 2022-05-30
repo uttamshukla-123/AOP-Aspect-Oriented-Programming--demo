@@ -12,11 +12,38 @@ public class MyDemoLoggingAspect {
 
 	// lets create @Before Aspect
 
-	@Before("execution(public void addAcoount())")
+	
+	//add pointcut expression on fully qualified class name
+	
+	/*@Before("execution(public void com.aopdemo.dao.AccountDao.addAcoount())")
+	public void beforeAddAccountAdvice() {
+
+		System.out.println("Executing @Before Aspect on addAccount");
+
+	}*/
+	
+	//add pointcut expression on wildcards
+	/*
+	@Before("execution(public void add*())")
 	public void beforeAddAccountAdvice() {
 
 		System.out.println("Executing @Before Aspect on addAccount");
 
 	}
+    */
+	
+	//add pointcut expression on return type
+	/*@Before("execution( void add*())")
+	public void beforeAddAccountAdvice() {
 
+		System.out.println("Executing @Before Aspect on addAccount");
+
+	}*/
+	//add pointcut expression on any returen type
+		@Before("execution( * add*())")
+		public void beforeAddAccountAdvice() {
+
+			System.out.println("Executing @Before Aspect on addAccount");
+
+		}
 }
